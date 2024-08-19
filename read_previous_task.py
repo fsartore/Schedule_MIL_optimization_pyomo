@@ -23,21 +23,24 @@ class ReadLasttask:
     
 
 def iterate_start_end_dates(today, current_year_list):
-    '''
+    """
     Iterate over the start and end dates for the time horizon under analysis.
     It returns a list of start dates and a list of end dates.
     Specifically, the start date is the current date and the end date is the first day of the next year.
     From the second year onwards, the start date is the first day of the year and the end date is the first day of the next year.
-    :param today: current date
-    :param current_year_list: list of years in the time horizon under analysis
-    :returns:
-        - start_date_list: list of start dates
-        - end_date_list: list of end dates
-    '''
+
+    :param today: Current date.
+    :type today: str or datetime-like
+    :param current_year_list: List of years in the time horizon under analysis.
+    :type current_year_list: list of int
+    :returns: 
+        - start_date_list: List of start dates.
+        - end_date_list: List of end dates.
+    :rtype: tuple of (list of datetime, list of datetime)
+    """
     today_timestamp = pd.to_datetime(today)
     start_date_list = [today_timestamp] + [pd.to_datetime(f'{year}-01-01') for year in current_year_list[1:]]
-    end_date_list = [pd.to_datetime(f'{today.year + 1}-01-01')] + [pd.to_datetime(f'{int(year) + 1}-01-01') for year in current_year_list[1:]]
+    end_date_list = [pd.to_datetime(f'{today_timestamp.year + 1}-01-01')] + [pd.to_datetime(f'{int(year) + 1}-01-01') for year in current_year_list[1:]]
     return start_date_list, end_date_list
-
 
    
