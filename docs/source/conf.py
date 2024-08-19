@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'MIL Schedule  optimization pyomo'
+project = 'MIL Schedule Optimization Pyomo'
 copyright = '2024, Federico Sartore'
 author = 'Federico Sartore'
 release = '0.1'
@@ -18,7 +18,7 @@ extensions = [
     "myst_parser",
     "sphinx.ext.duration",
     "sphinx.ext.autosectionlabel",
-    "nbsphinx",  # Myst
+    "nbsphinx",                    # Myst
     "sphinx.ext.autodoc",
 ]
 
@@ -30,5 +30,5 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+html_theme = 'furo'         # sphinx theme gallery for more
 html_static_path = ['_static']

@@ -1,4 +1,4 @@
-# Template for the Read the Docs tutorial
+# Welcome to  MIL Schedule Optimization with Pyomo's documentation!
 
 This GitHub template includes a fictional Python library with some basic Sphinx docs.
 

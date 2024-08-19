@@ -3,11 +3,23 @@
 % You can adapt this file completely to your liking, but it should at least
 % contain the root `toctree` directive.
 
-# Welcome to  MIL Schedule optimization with pyomo's documentation!
+
+
+```{include} ../../README.md
+```
+For parameters, please refere to {doc}`Parameters`. 
+For directories, please refere to {ref}`Directories`.
+
+```{warning}
+This is under construction
+```
+
 
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
+
+Parameters
 ```
 
 # Indices and tables
