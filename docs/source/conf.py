@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Schedule MIL optimization pyomo'
+project = 'MIL Schedule  optimization pyomo'
 copyright = '2024, Federico Sartore'
 author = 'Federico Sartore'
 release = '0.1'
