@@ -21,6 +21,7 @@ This is under construction
 
 Parameters
 Read previous task
+Bounds
 ```
 
 # Indices and tables

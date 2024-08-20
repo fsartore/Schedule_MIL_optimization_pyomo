@@ -1,5 +1,5 @@
 import pyomo.environ as pyomo
-from Parameters import T,  task_days, standard_interval,units_partition, dict_delta
+from Parameters import T,  task_days, standard_interval,units_partition
 from Parameters import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
 from Parameters import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
 from Constraints import Constraints_maintenace
