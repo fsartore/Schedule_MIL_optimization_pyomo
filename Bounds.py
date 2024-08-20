@@ -17,7 +17,8 @@ def partition_dict(bound_dict_init, units_partition, n_units, n_units_tot, remai
     :type n_units_tot: int
     :param remainder: The remainder when dividing the total number of units by the number of partitions.
     :type remainder: int
-    :returns: A list of dictionaries, each containing a partition of the units.
+    :returns:
+        - dict_partitions: A list of dictionaries, each containing a partition of the units.
     :rtype: list of dict
     """
     items = iter(bound_dict_init.items())

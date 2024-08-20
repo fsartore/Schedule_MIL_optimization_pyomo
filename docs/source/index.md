@@ -22,6 +22,7 @@ This is under construction
 Parameters
 Read previous task
 Bounds
+Constraints
 ```
 
 # Indices and tables
