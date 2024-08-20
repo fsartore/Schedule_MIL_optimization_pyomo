@@ -13,9 +13,14 @@
 ```
 </div>
 
-<div style="border: 1px solid orange; padding: 10px; background-color: #fff3cd; color: #856404;">
-  <strong>Note:</strong> >Implement according to your data <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/read_previous_task.py#L6-L22" target="_blank">`read_previous_task`</a> .py doc.
-</div>
+<div style="border: 2px solid #4CAF50; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
+  <h2 style="color: #4CAF50;">Read Last Task</h2>
+  <p><strong>Overview:</strong></p>
+  <p>The <code>read_previous_task.ReadLasttask.read_last_task</code> function is designed to read the last task data for each unit.</p>
+  <p>To read the last task data, you can use the following function:</p>
+  <p><a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/read_previous_task.py#L19-L20" target="_blank" style="color: #4CAF50;">read_previous_task.ReadLasttask.read_last_task</a></p>
+
 ```{eval-rst}
 .. autofunction:: read_previous_task.ReadLasttask.read_last_task
 ```
+</div>
