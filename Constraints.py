@@ -1,8 +1,6 @@
 import pyomo.environ as pyomo
 
 
-
-
 class Constraints_maintenace:
     def __init__(self,model,time_tot, task_days,T,days_to_monday):
         self.m = model
