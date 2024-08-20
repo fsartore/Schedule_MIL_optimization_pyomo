@@ -1,5 +1,5 @@
 import pyomo.environ as pyomo
-from Parameters import T,  task_days, standard_interval,units_partition
+from Parameters import T,  task_days, standard_interval,units_partition, dict_delta
 from Parameters import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
 from Parameters import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
 from Constraints import Constraints_maintenace
@@ -56,7 +56,7 @@ counter_unfeasibility = 0
 counter_overlap = 0
 task_flexibility_down_base = task_flexibility_down
 task_flexibility_up_base = task_flexibility_up
-dict_delta = {unit: 78 for unit in unit_names}       #TODO: customize the dict_delta with the number of delta weeks per each unit
+dict_delta = {unit: round(standard_interval*4.345) for unit in unit_names}       # dict_delta with the number of delta weeks per each unit
 
 
 '''Iterate over the years'''

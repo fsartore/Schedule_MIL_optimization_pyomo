@@ -9,3 +9,7 @@ To create the start end times, you can use the <a href="https://github.com/fsart
 ```{eval-rst}
 .. autofunction:: read_previous_task.iterate_start_end_dates
 ```
+
+```{eval-rst}
+.. autofunction:: read_previous_task.ReadLasttask.read_last_task
+```

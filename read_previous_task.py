@@ -10,7 +10,8 @@ class ReadLasttask:
         self.last_task_type = self.read_last_task()[1]
 
     def read_last_task(self):
-        '''Implement according to your data
+        '''
+        Implement according to your data
         
         :returns:
             - last_task_dict_time: dictionary with the last time the task was held for each unit
