@@ -5,17 +5,22 @@ from datetime import timedelta
 def unit_todo_task(unit_list_name, last_task_data, weeks,  dict_delta):
 
     '''
-    Check if the task will be held in the time horizon under analysis, 
-    return the number of units to undego the task and a dictionary with the units to undergo the task.
-
-    :param unit_list_name: list of units to undergo the task
-    :param last_task_data: list of the last time the task was held for each unit
-    :param weeks: number of weeks in the time horizon
-    :param dict_delta: dictionary with the delta time between tasks for each unit
-    :returns: 
-        - n_units: number of units to undergo the task
-        - unit_todo_task_dict: dictionary with the units to undergo the task and their last task time
-        - dict_interval_to_do_task: dictionary with the interval between tasks for each unit which will undergo the task
+        Check if the task will be held in the time horizon under analysis, 
+        return the number of units to undergo the task and a dictionary with the units to undergo the task.
+    
+        :param unit_list_name: list of units to undergo the task
+        :type unit_list_name: list[str]
+        :param last_task_data: list of the last time the task was held for each unit
+        :type last_task_data: list[int]
+        :param weeks: number of weeks in the time horizon
+        :type weeks: int
+        :param dict_delta: dictionary with the delta time between tasks for each unit
+        :type dict_delta: dict[str, int]
+        :returns: 
+            - n_units: number of units to undergo the task
+            - unit_todo_task_dict: dictionary with the units to undergo the task and their last task time
+            - dict_interval_to_do_task: dictionary with the interval between tasks for each unit which will undergo the task
+        :rtype: tuple[int, dict[str, int], dict[str, int]]
     '''
     n_units = 0
     unit_todo_task_dict = {}  # Initialize as an empty dictionary
@@ -38,15 +43,17 @@ def unit_todo_task(unit_list_name, last_task_data, weeks,  dict_delta):
 
 def target_time(dict_last_task, dict_unit_todo_task, dict_interval_to_do_task):
     '''
-
-    Calculate the target week for the next task for each unit in the dictionary dict_unit_todo_task.
-
-    :param dict_last_task: dictionary with the last task time in weeks for each unit
-    :param dict_unit_todo_task: dictionary with the units to undergo the task and their last task time week.
-    :param dict_interval_to_do_task: dictionary with the interval between tasks for each unit which will undergo the task
-    :returns:
-        - dict_target: dictionary with the target week for the next task for each unit in dict_unit_todo_task
-
+        Calculate the target week for the next task for each unit in the dictionary dict_unit_todo_task.
+    
+        :param dict_last_task: dictionary with the last task time in weeks for each unit
+        :type dict_last_task: dict[str, int]
+        :param dict_unit_todo_task: dictionary with the units to undergo the task and their last task time week
+        :type dict_unit_todo_task: dict[str, int]
+        :param dict_interval_to_do_task: dictionary with the interval between tasks for each unit which will undergo the task
+        :type dict_interval_to_do_task: dict[str, int]
+        :returns:
+            - dict_target: dictionary with the target week for the next task for each unit in dict_unit_todo_task
+        :rtype: dict[str, int]
     '''
     dict_target = {}
     for unit in dict_unit_todo_task.keys():
@@ -69,20 +76,25 @@ def target_time(dict_last_task, dict_unit_todo_task, dict_interval_to_do_task):
 def task_range(dict_intervall_to_do_task, weeks,  task_flexibility_up, task_flexibility_down, dict_unit_todo_task):
 
     '''
-    This function returns a dictionary of tuples with the bounds for the task times in weeks for each unit to undergo the task
-    given the task flexibility from Parameters. It also returns a dictionary with the target week for the next task for each unit,
-    ordered according to the bounds.
-
-    :param dict_intervall_to_do_task: dictionary with the interval between tasks for each unit which will undergo the task
-    :param weeks: number of weeks in the time horizon
-    :param task_flexibility_up: maximum number of weeks the task can be delayed
-    :param task_flexibility_down: maximum number of weeks the task can be anticipated
-    :param dict_unit_todo_task: dictionary with the units to undergo the task and their last task time week.
-    :returns:
-        - bound_dict_init: dictionary with the bounds for the task times in weeks for each unit to undergo the task
-        - target_week_dict: dictionary with the target week for the next task for each unit, ordered according to the bounds.
-
+        This function returns a dictionary of tuples with the bounds for the task times in weeks for each unit to undergo the task
+        given the task flexibility from Parameters. It also returns a dictionary with the target week for the next task for each unit,
+        ordered according to the bounds.
     
+        :param dict_interval_to_do_task: dictionary with the interval between tasks for each unit which will undergo the task
+        :type dict_interval_to_do_task: dict[str, int]
+        :param weeks: number of weeks in the time horizon
+        :type weeks: int
+        :param task_flexibility_up: maximum number of weeks the task can be delayed
+        :type task_flexibility_up: int
+        :param task_flexibility_down: maximum number of weeks the task can be anticipated
+        :type task_flexibility_down: int
+        :param dict_unit_todo_task: dictionary with the units to undergo the task and their last task time week
+        :type dict_unit_todo_task: dict[str, int]
+        :returns:
+            - bound_dict_init: dictionary with the bounds for the task times in weeks for each unit to undergo the task
+            :rtype: dict[str, tuple[int, int]]
+            - target_week_dict: dictionary with the target week for the next task for each unit, ordered according to the bounds
+            :rtype: dict[str, int]
     '''
     bound_dict_init = {i: (1, weeks) for i in dict_unit_todo_task.keys()}
     target_week_dict ={i: 0 for i in dict_unit_todo_task.keys()}
