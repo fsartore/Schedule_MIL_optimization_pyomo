@@ -1,8 +1,8 @@
 
 # Parameters
 
-<div style="border: 1px solid orange; padding: 10px; background-color: #fff3cd; color: #856404;">
-  <strong>Note:</strong> >Define the parameters according to your own setup in <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Parameters.py#L6-L22" target="_blank">`Parameters`</a> .py doc.
+<div style="border: 1px solid green; padding: 10px; background-color: #d4edda; color: #155724;">
+  <strong>Note:</strong> Define the parameters according to your own setup in <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Parameters.py#L6-L22" target="_blank">`Parameters`</a> .py doc.
 </div>
 
 
@@ -27,8 +27,8 @@
 
 ## Define Folder Paths
 
-<div style="border: 1px solid orange; padding: 10px; background-color: #fff3cd; color: #856404;">
-  <strong>Note:</strong> >Change the folder paths according to your own setup.in <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Directories.py#L4-L7" target="_blank">`Directories`</a> .py doc.
+<div style="border: 1px solid green; padding: 10px; background-color: #d4edda; color: #155724;">
+  <strong>Note:</strong> Change the folder paths according to your own setup in <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Directories.py#L4-L7" target="_blank">`Directories`</a> .py doc.
 </div>
 
 

@@ -17,16 +17,14 @@ This is under construction
 
 ```{toctree}
 :caption: 'Contents:'
-:maxdepth: 2
+:maxdepth: 6
 
+Installation
+Pyomo Optimization Model
+Constraints
 Parameters
 Read previous task
 Bounds
-Constraints
 ```
 
-# Indices and tables
 
-- {ref}`genindex`
-- {ref}`modindex`
-- {ref}`search`
