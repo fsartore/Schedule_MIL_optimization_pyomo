@@ -1,9 +1,6 @@
 ######## Objective: give back a dictonary of couples ##########
 from dateutil.relativedelta import relativedelta
 from datetime import timedelta
-import pandas as pd
-import numpy as np
-
 
 def unit_todo_task(unit_list_name, last_task_data, weeks,  dict_delta):
 
