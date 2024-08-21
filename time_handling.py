@@ -2,8 +2,6 @@ import pandas as pd
 import os
 import pyomo.environ as pyomo
 
-#:caption: 'Contents:'
-#:maxdepth: 2
 class TimeHandling:
     def __init__(self, current_year_list, file_path_input,today):
         self.current_year_list = current_year_list
