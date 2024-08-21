@@ -24,15 +24,15 @@ class TimeHandling:
 
     def generate_holidays_days_list(self):
         '''
-            Generate a list of holidays for each year in the time horizon under analysis.
-            To perform this task, the function reads the holidays from an Excel file.
-            The Excel file must have a sheet named 'Feriados' with the following columns:
-            - year 2020, year 2021, year 2022, ...
-            Each row represents a holiday.
-            If a holiday is not present in a year, the cell must be empty.
-        
-            :returns: holidays_days_list: list of holidays for each year in the time horizon
-            :rtype: list[list[str]]
+        Generate a list of holidays for each year in the time horizon under analysis.
+        To perform this task, the function reads the holidays from an Excel file.
+        The Excel file must have a sheet named 'Feriados' with the following columns:
+        - year 2020, year 2021, year 2022, ...
+        Each row represents a holiday.
+        If a holiday is not present in a year, the cell must be empty.
+    
+        :returns: holidays_days_list: list of holidays for each year in the time horizon
+        :rtype: list[list[str]]
         '''
         holidays_days_list = []
         for year in self.current_year_list:
@@ -78,48 +78,48 @@ class TimeHandling:
 
     def modify_task_schedule(self,check_overlap,  m, days_to_monday, counter,storage_x,  start_end_time_dict, active_unit_keys_list, counter_overlap,counter_overlap_max, task_days):
         '''
-            This function modifies the task schedule to make it feasible.
-            This is a complex function that adjusts the solution to be feasible, to avoid overlaps, to make the first day Monday
-            and to ensure that the task days are consecutive.
-        
-            Three checks:
-            1) first day is not Monday
-            2) the task days are not consecutive
-            3) the solution overlaps with other solutions
-        
-            Update specific_x, the current solution, depending on the quality of the modified solutions
-            CRITERIAS:
-            1) favour the solution with less task days to improve the availability
-            2) avoid overlaps
-            ACTIONS:
-            1) If all good update specific_x
-            2) Raise a value error to activate unfeasible tricks to distribute better the target times
-            3) If close to the last unfeasible tricks, accept an overlap solution
-        
-            :param check_overlap: True if we want the solver to restart in case of overlap
-            :type check_overlap: bool
-            :param m: model
-            :type m: Any
-            :param days_to_monday: days to the first Monday from the first day
-            :type days_to_monday: int
-            :param counter: counter of the number of times the function was called
-            :type counter: int
-            :param storage_x: where previous solutions of the same year are stored
-            :type storage_x: dict
-            :param start_end_time_dict: start and end time of task for each unit
-            :type start_end_time_dict: dict
-            :param active_unit_key_list: units in this partition to be possibly changed
-            :type active_unit_key_list: list
-            :param counter_overlap: counter of various unfeasibilities for overlap
-            :type counter_overlap: int
-            :param counter_overlap_max: maximum number of unfeasibilities for overlap
-            :type counter_overlap_max: int
-            :param task_days: number of task days
-            :type task_days: int
-            :returns: 
-                - specific_x: the modified solution
-                - start_end_time_dict: the start and end time of the modified solution
-            :rtype: tuple[dict, dict]
+        This function modifies the task schedule to make it feasible.
+        This is a complex function that adjusts the solution to be feasible, to avoid overlaps, to make the first day Monday
+        and to ensure that the task days are consecutive.
+    
+        Three checks:
+        1) first day is not Monday
+        2) the task days are not consecutive
+        3) the solution overlaps with other solutions
+    
+        Update specific_x, the current solution, depending on the quality of the modified solutions
+        CRITERIAS:
+        1) favour the solution with less task days to improve the availability
+        2) avoid overlaps
+        ACTIONS:
+        1) If all good update specific_x
+        2) Raise a value error to activate unfeasible tricks to distribute better the target times
+        3) If close to the last unfeasible tricks, accept an overlap solution
+    
+        :param check_overlap: True if we want the solver to restart in case of overlap
+        :type check_overlap: bool
+        :param m: model
+        :type m: Any
+        :param days_to_monday: days to the first Monday from the first day
+        :type days_to_monday: int
+        :param counter: counter of the number of times the function was called
+        :type counter: int
+        :param storage_x: where previous solutions of the same year are stored
+        :type storage_x: dict
+        :param start_end_time_dict: start and end time of task for each unit
+        :type start_end_time_dict: dict
+        :param active_unit_key_list: units in this partition to be possibly changed
+        :type active_unit_key_list: list
+        :param counter_overlap: counter of various unfeasibilities for overlap
+        :type counter_overlap: int
+        :param counter_overlap_max: maximum number of unfeasibilities for overlap
+        :type counter_overlap_max: int
+        :param task_days: number of task days
+        :type task_days: int
+        :returns: 
+            - specific_x: the modified solution
+            - start_end_time_dict: the start and end time of the modified solution
+        :rtype: tuple[dict, dict]
         '''
 
 
