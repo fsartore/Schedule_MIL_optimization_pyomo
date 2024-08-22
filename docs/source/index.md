@@ -20,14 +20,16 @@ This is under construction
 :maxdepth: 6
 
 Installation
+Main
 Pyomo Optimization Model
 Constraints
 Parameters
-Read previous task
 Bounds
+Read previous task
 Task Manager
 Time Handling
 Handling Unfeasibility
+Plot Results
 ```
 
 

@@ -48,3 +48,10 @@ Then, we can start building the model.
 ```python
 m = pyo.ConcreteModel()
 ```
+
+## Gurobi
+To clone the code please use the following command from a terminal:
+
+```sh
+git clone https://github.com/fsartore/Schedule_MIL_optimization_pyomo.git
+```
