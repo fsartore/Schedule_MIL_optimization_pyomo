@@ -6,18 +6,24 @@ def handle_unfeasibility( target_week_dict, weeks,   counter_unfeasibility, coun
                            dict_pairs_unfeasible=None, target_week_base_unfeasible=None,
                            adjustments_tracker_base=None):
     """
-    Handles the case when scheduling is unfeasible by attempting various adjustments.
-    This function is the main one to be called when unfeasibility is detected.
-    Specifics of the adjustments are defined in the functions called within this function.
-    # TODO: Cite them.
-
-    :param unfeasible: Boolean indicating if the current scheduling is unfeasible.
-    :param target_week_dict: The current target week dictionary.
-    :param weeks: Total number of weeks.
-    :param dict_pairs: Current dictionary pairs.
-    :param adjustments_tracker: Tracker for adjustments made.
-    :param counter_unfeasibility: Counter for the number of unfeasibility attempts.
-    :return: Updated target_week_dict, adjustments_tracker, and dict_pairs.
+        Handles the case when scheduling is unfeasible by attempting various adjustments.
+        This function is the main one to be called when unfeasibility is detected.
+        Specifics of the adjustments are defined in the functions called within this function.
+        
+        :param unfeasible: Boolean indicating if the current scheduling is unfeasible.
+        :type unfeasible: bool
+        :param target_week_dict: The current target week dictionary.
+        :type target_week_dict: dict
+        :param weeks: Total number of weeks.
+        :type weeks: int
+        :param dict_pairs: Current dictionary pairs.
+        :type dict_pairs: dict
+        :param adjustments_tracker: Tracker for adjustments made.
+        :type adjustments_tracker: dict
+        :param counter_unfeasibility: Counter for the number of unfeasibility attempts.
+        :type counter_unfeasibility: int
+        :return: Updated target_week_dict, adjustments_tracker, and dict_pairs.
+        :rtype: tuple[dict, dict, dict]
     """
     dict_pairs = {(i, j): 0 for i in target_week_dict.keys() for j in target_week_dict.keys() if i != j}
     if target_week_dict_unfeasible is not None and dict_pairs_unfeasible is not None:
@@ -51,23 +57,27 @@ def handle_unfeasibility( target_week_dict, weeks,   counter_unfeasibility, coun
 
 def adjust_values_to_reduce_crowding(target_week_dict, weeks, dict_pairs, adjustments_tracker=None ):
     '''
-    It is used in case of unfeasibility to change a bit the target week dicto to make the task feasible
+    It is used in case of unfeasibility to change a bit the target week dictionary to make the task feasible.
     LOGIC:
     1. If the difference between the two closest values is less than weeks/2, 
-    adjust the value with the smaller adjustment_tracker value 
-    by incresing it by 1 if the value is the bigger one and by decreasing it by 1 if the value is the smaller one
-    and oif the destination is free, otherwise increse the bigger by one
+       adjust the value with the smaller adjustment_tracker value 
+       by increasing it by 1 if the value is the bigger one and by decreasing it by 1 if the value is the smaller one
+       and if the destination is free, otherwise increase the bigger by one.
     2. If the difference between the two closest values is more than weeks/2,
-    adjust the value with the smaller adjustment_tracker value
-    by decreasing it by 1 if the value is the smaller one and by increasing it by 1 if the value is the bigger one
-    and if the destination is free, otherwise decrease the smaller by one
+       adjust the value with the smaller adjustment_tracker value
+       by decreasing it by 1 if the value is the smaller one and by increasing it by 1 if the value is the bigger one
+       and if the destination is free, otherwise decrease the smaller by one.
 
-    :param target_week_dict: The current target week dictionary, when the task should be scheduled
+    :param target_week_dict: The current target week dictionary, when the task should be scheduled.
+    :type target_week_dict: dict[str, int]
     :param weeks: Total number of weeks.
-    :param dict_pairs: Current dictionary pairs, made of all the possible combinations of two units
+    :type weeks: int
+    :param dict_pairs: Current dictionary pairs, made of all the possible combinations of two units.
+    :type dict_pairs: dict[str, tuple[str, str]]
     :param adjustments_tracker: Tracker for adjustments made.
+    :type adjustments_tracker: dict[str, int]
     :return: Updated target_week_dict, adjustments_tracker, and dict_pairs.
-
+    :rtype: tuple[dict[str, int], dict[str, int], dict[str, tuple[str, str]]]
     '''
 
     if not target_week_dict:
@@ -196,23 +206,33 @@ def desperate_adjust_target_week(target_week_dict_original, adjustments_tracker_
                                  zero_weight, one_weight, two_weight, three_weight,
                                    adjustments_tracker=None, target_week_dict=None):
     """
-    Adjusts the values of target_week_dict randomly within a range of +-flex_adjust,
-    ensuring the final values are between 1 and `week`. Tracks the adjustments made
-    in adjustments_tracker. Gives more probability to a change of +-(numb) weight
-    depending on the weight given to the number.
-
-    :param target_week_dict_original: The original target week dictionary.
-    :param adjustments_tracker_base: The original adjustments tracker.
-    :param week: The total number of weeks.
-    :param flex_adjust: The maximum adjustment value in weeks.
-    :param zero_weight: The weight for 0 weeks adjustments.
-    :param one_weight: The weight for 1 week adjustments.
-    :param two_weight: The weight for 2 weeks adjustments.
-    :param three_weight: The weight for 3 weeks adjustments.
-    :param adjustments_tracker: The current adjustments tracker.
-    :param target_week_dict: The current target week dictionary.
-    :return: Updated target_week_dict and adjustments_tracker.
-
+        Adjusts the values of target_week_dict randomly within a range of +-flex_adjust,
+        ensuring the final values are between 1 and `week`. Tracks the adjustments made
+        in adjustments_tracker. Gives more probability to a change of +-(numb) weight
+        depending on the weight given to the number.
+    
+        :param target_week_dict_original: The original target week dictionary.
+        :type target_week_dict_original: dict[str, int]
+        :param adjustments_tracker_base: The original adjustments tracker.
+        :type adjustments_tracker_base: dict[str, int]
+        :param week: The total number of weeks.
+        :type week: int
+        :param flex_adjust: The maximum adjustment value in weeks.
+        :type flex_adjust: int
+        :param zero_weight: The weight for 0 weeks adjustments.
+        :type zero_weight: float
+        :param one_weight: The weight for 1 week adjustments.
+        :type one_weight: float
+        :param two_weight: The weight for 2 weeks adjustments.
+        :type two_weight: float
+        :param three_weight: The weight for 3 weeks adjustments.
+        :type three_weight: float
+        :param adjustments_tracker: The current adjustments tracker.
+        :type adjustments_tracker: dict[str, int]
+        :param target_week_dict: The current target week dictionary.
+        :type target_week_dict: dict[str, int]
+        :return: Updated target_week_dict and adjustments_tracker.
+        :rtype: tuple[dict[str, int], dict[str, int]]
     """
     if adjustments_tracker is None:
         adjustments_tracker = {}
@@ -246,14 +266,18 @@ def desperate_adjust_target_week(target_week_dict_original, adjustments_tracker_
 
 def adjusted_bound_dict_init(target_week_dict, weeks, task_flexibility_up, task_felxibility_down):
     '''
-    This function is used to adjust the bound_dict_init in case of unfeasibility
-    
-    :param target_week_dict: The current target week dictionary, when the task should be scheduled
-    :param weeks: Total number of weeks.
-    :param task_flexibility_up: The maximum number of weeks the task can be scheduled after the target week
-    :param task_felxibility_down: The maximum number of weeks the task can be scheduled before the target week
-    :return: Updated bound_dict_init.
-    
+        This function is used to adjust the bound_dict_init in case of unfeasibility.
+        
+        :param target_week_dict: The current target week dictionary, when the task should be scheduled.
+        :type target_week_dict: dict[str, int]
+        :param weeks: Total number of weeks.
+        :type weeks: int
+        :param task_flexibility_up: The maximum number of weeks the task can be scheduled after the target week.
+        :type task_flexibility_up: int
+        :param task_flexibility_down: The maximum number of weeks the task can be scheduled before the target week.
+        :type task_flexibility_down: int
+        :return: Updated bound_dict_init.
+        :rtype: dict[str, tuple[int, int]]
     '''
     bound_dict_init = {i: (1, weeks) for i in target_week_dict.keys()}
     for i in target_week_dict.keys():
