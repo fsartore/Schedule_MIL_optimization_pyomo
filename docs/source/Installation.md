@@ -49,7 +49,7 @@ Then, we can start building the model.
 m = pyo.ConcreteModel()
 ```
 
-## Gurobi
+## GitHub
 To clone the code please use the following command from a terminal:
 
 ```sh

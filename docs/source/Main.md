@@ -3,12 +3,19 @@
 This is the main file that runs the MIL optimization.
 It is the file that is called by the user to run the optimization. 
 
-<p>To see and download the function, you can follow this link:</p>
+<p>To access the main function, you can follow this link:</p>
 <p><a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Scheduling_maintenance_multiyear.py" target="_blank" style="color: #4CAF50;">Scheduling_maintenance_multiyear</a></p>
 
-![Optimization Process](../../Code_scheme.png)
+![Optimization Process Description](../../Code_scheme.png)
+*Figure 1: Optimization Process Description*
+
+<div style="border: 1px solid green; padding: 10px; background-color: #fff3cd; color: #856404;">
+  <strong>Note:</strong> The main function will not run until the <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Parameters.py#L6-L22" target="_blank">`Parameters.py`</a> doc and <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Directories.py#L4-L7" target="_blank">`Directories.py`</a> code are not properly set up according to the user's needs.
+</div></p>
+
 
 The specific functions are described in the specific Contents section: 
+
 
 1. {doc}`Pyomo Optimization Model`: This section describes the optimization model used in the package.
 2. {doc}`Constraints`: This section describes the constraints used in the optimization model.

@@ -7,12 +7,6 @@
 
 ```{include} ../../README.md
 ```
-For parameters, please refere to {doc}`Parameters`. 
-For directories, please refere to {ref}`Define Folder Paths`.
-
-```{warning}
-This is under construction
-```
 
 
 ```{toctree}

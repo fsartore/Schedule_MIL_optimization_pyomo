@@ -22,7 +22,7 @@
 </div>
 
 <div style="border: 2px solid #4CAF50; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
-  <h2 style="color: #4CAF50;">End After Rule</h2>
+  <h2 style="color: #4CAF50;">m_init_rule</h2>
   <p><strong>Overview:</strong></p>
   <p>To read the m_init_rule constraint, you can use the following function:</p>
   <p><a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Constraints.py#L28-L43" target="_blank" style="color: #4CAF50;">Constraints.Constraints_maintenace.m_init_rule</a></p>
