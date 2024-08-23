@@ -1,7 +1,10 @@
 import pyomo.environ as pyomo
-from Parameters import T,  task_days, standard_interval,units_partition
-from Parameters import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
-from Parameters import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
+# from Parameters import T,  task_days, standard_interval,units_partition
+# from Parameters import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
+# from Parameters import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
+from Parameters_example import T,  task_days, standard_interval,units_partition
+from Parameters_example import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
+from Parameters_example import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
 from Constraints import Constraints_task
 from Bounds import Bounds_class
 from Bounds import bound_dict_t, possible_unit_times,  partition_dict
@@ -11,12 +14,15 @@ import time
 from pyomo.contrib.appsi.solvers import Highs
 import numpy as np
 import pandas as pd
-from elaborate_and_save_data import save_data_results, fill_dataframe
-from time_handling import TimeHandling
+from elaborate_and_save_data import save_data_results, fill_dataframe, process_task_data
+#from time_handling import TimeHandling
+from time_handling_example import TimeHandling
 from Task_Manager import unit_todo_task, task_range, target_time
 from handling_unfeasibility import handle_unfeasibility, adjusted_bound_dict_init
-from read_previous_task import ReadLasttask
-from Parameters import unit_names, today,  end_year, best_task_delta_weeks, best_task_delta_days
+#from read_previous_task import ReadLasttask
+from read_previous_task_example import ReadLasttask
+#from Parameters import unit_names, today,  end_year, best_task_delta_weeks, best_task_delta_days
+from Parameters_example import unit_names, today,  end_year, best_task_delta_weeks, best_task_delta_days
 import Directories as dir
 
 start_time = time.time()
@@ -25,11 +31,11 @@ print('current_year_list:', current_year_list)
 
 '''Define directories and classes instances'''
 file_path_input =  dir.folder_path_input                                        # were we store the resulkts that will serve as input for the next iteration
-previous_tasktenance_path = dir.previous_tasktenance_path                               # path to the last task data
+previous_tasktenance_path = dir.last_task_path                              # path to the last task data
 time_handling_instance = TimeHandling(current_year_list, file_path_input,today)
-previous_year_list = time_handling_instance.uniterate_previous_year_list()
-start_date_list, end_date_list = time_handling_instance.uniterate_start_end_dates()
-holidays_days_list = time_handling_instance.uniterate_holidays_days_list()
+previous_year_list = time_handling_instance.generate_previous_year_list()
+start_date_list, end_date_list = time_handling_instance.generate_start_end_dates()
+holidays_days_list = time_handling_instance.generate_holidays_days_list()
 previous_task_instance = ReadLasttask(unit_names, previous_tasktenance_path, today)
 
 # Create a dictionary and a dataframe that will store the availability of each year for result analysis
@@ -82,8 +88,8 @@ while year_flag == True:
     if previous_year == previous_year_list[0] or (year_counter != 0 and n_unit_history[year_counter-1] == 0):          # the first time we read the data from the last task file
         dict_previous_task, previous_task_dict_year = previous_task_instance.read_last_task()
     else:
-        df_lmy = pd.read_excel(f'{file_path_input}/...')                                                               # then from the  result file that we have just created
-        dict_previous_task = dict(zip(df_lmy['Unit'], df_lmy['Task']))
+        df_lmy = pd.read_excel(f'{file_path_input}/input_{previous_year}.xlsx', sheet_name='last_task')                                                               # then from the  result file that we have just created
+        dict_previous_task = dict(zip(df_lmy['Unit'], df_lmy['Last task']))
     dict_weeks_previous_task = {unit: (start_date - pd.to_datetime(date)).days//7 for unit, date in dict_previous_task.items()} # weeks ago of previous task
     previous_task_data = [int(-value) for value in dict_weeks_previous_task.values()]
     n_units_tot, dict_unit_todo_task, dict_interval_to_do_task = unit_todo_task(unit_list_name, previous_task_data, weeks, dict_delta) # specific dict that will be involved in the current_year analysis
@@ -136,7 +142,7 @@ while year_flag == True:
             bound_obj_t = Bounds_class(m, bound_dict_t(dict_partitions_current, weeks, T,days_to_monday, time_horizon_tot, best_task_delta_weeks))
             n_unit_element = n_units_tuple(dict_partitions_current)
             m.n_units = pyomo.Set(initialize = n_unit_element)                   # Define a set for units
-            m.t = pyomo.Set(m.n_units, initialize = bound_obj_t.bounds_rule_t)   # Define a set for time steps
+            m.t = pyomo.Set(m.n_units, initialize = bound_obj_t.bounds_rule)   # Define a set for time steps
             bound_dict_t_current = bound_dict_t(dict_partitions_current, weeks, T,days_to_monday,time_horizon_tot, best_task_delta_weeks)
           
             m.NN = pyomo.Set(initialize = possible_unit_times(bound_dict_t_current)) # Define a set for possible units-times couples
@@ -160,7 +166,7 @@ while year_flag == True:
             m.tend = pyomo.Var(m.n_units, domain=pyomo.NonNegativeIntegers, name="t_end", bounds = bound_obj_end.bounds_rule)  # end task
                 
             #############Constraints##############
-            constr_obj = Constraints_maintenace(m, time_horizon_tot, task_days, T,days_to_monday)
+            constr_obj = Constraints_task(m, time_horizon_tot, task_days, T,days_to_monday)
             '''Add constraints to ensure that end time is after start time'''
             m.after_start = pyomo.Constraint(m.n_units, rule = constr_obj.end_after_start_rule)
             '''Constraint to ensure x = 0 when before the start of the task'''
@@ -263,6 +269,17 @@ while year_flag == True:
         df = fill_dataframe(df, current_x, active_unit_keys_list, days_time_hoz_list) 
         # Final result to store
         final_x = np.round(np.array(current_x), 1)
+
+        # this function does not modify the datas
+        file_path_input =  dir.folder_path_input
+        if previous_year == previous_year_list[0] or (year_counter != 0 and n_unit_history[year_counter-1] == 0): # if first year
+            process_task_data(dict_previous_task,  
+                                    start_end_time_dict, file_path_input, current_year, previous_year, previous_year_list)
+        else:  # if following years
+            df_lm = pd.read_excel(f'{file_path_input}/input_{previous_year}.xlsx', sheet_name='last_task')
+            process_task_data(dict_previous_task,  
+                                    start_end_time_dict, file_path_input, current_year, previous_year, previous_year_list, df_lm)
+        # Save the results to future use       
         # Save the results to future use
         save_data_results(dir.folder_path_results, df,  final_x, start_end_time_dict, active_unit_keys_list, 
                           current_year,df_difference, dict_diff,dict_unit_todo_task, unit_list_name, time_horizon_tot,

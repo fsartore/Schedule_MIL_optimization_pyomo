@@ -118,3 +118,27 @@ def load_data_plot(folder_path, current_year):
                 data[key] = None
     
     return data
+
+def process_task_data(dict_last_task, 
+                             start_end_time_dict, file_path_input, current_year, previous_year, previous_year_list, df_lm=None):
+    if df_lm is None:
+        df_lm = pd.DataFrame()  # Or handle it appropriately based on your logic
+
+    
+    start_end_time = pd.DataFrame.from_dict(start_end_time_dict, orient='index', columns=['Start', 'End'])
+    dict_end_time = dict(zip(start_end_time.index, start_end_time['End']))
+    dict_end_time = {key: pd.to_datetime(value) for key, value in dict_end_time.items()}
+    
+    if previous_year != previous_year_list[0] and not df_lm.empty:
+        dict_last_task.update(dict(zip(df_lm['Unit'], df_lm['Last task'])))
+
+    for gen, _ in list(dict_last_task.items()):
+        if gen in dict_end_time:
+            dict_last_task[gen] = dict_end_time[gen]
+
+    next_year_dict = {key: (dict_last_task.get(key, '')) for key in dict_last_task}
+    next_year = pd.DataFrame.from_dict(next_year_dict, orient='index', columns=['Last task'])
+    next_year.index.name = 'Unit'
+    next_year.to_excel(f'{file_path_input}/input_{current_year}.xlsx', sheet_name='last_task')
+
+    
