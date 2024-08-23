@@ -16,7 +16,7 @@ counter_overlap_max = 2             # Max time of overlaps
 check_time = None                   # True: if we want to stop the code if we reach the max time
 max_time = 10*60                    # Max time for the code to find a solution
 T = 7                               # days in a week
-best_task_delta_days =  20          # best task delta days
+best_task_delta_days =  18          # best task delta days
 best_task_delta_weeks = 3           # best task delta weeks
 unit_names = [
     'Worker 01', 
