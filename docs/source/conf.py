@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'MIL Schedule Optimization Pyomo'
+project = 'Schedule_MIL_optimization_pyomo'
 copyright = '2024, Federico Sartore'
 author = 'Federico Sartore'
 release = '0.1'
@@ -32,6 +32,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "nbsphinx",                    # Myst
     "sphinx.ext.autodoc",
+    "sphinx_rtd_theme",
 ]
 
 templates_path = ['_templates']

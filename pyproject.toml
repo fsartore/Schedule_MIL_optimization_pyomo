@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "MIL Schedule Optimization Pyomo"
+name = "Schedule_MIL_optimization_pyomo"
 authors = [{name = "Federico Sartore", email = "fsartore@student.ethz.ch"}]
 dynamic = ["version", "description"]
 
