@@ -38,6 +38,10 @@ Eventually, a plot can be produced to visualize the results:
 
 11. {doc}`Plot Results`: This section describes how to plot the results of the optimization model.
 
+To run an example code, you can follow this link:
+
+12. {doc}`Example`: This section describes an example code that can be run to test the optimization model.
+
 
 
 
