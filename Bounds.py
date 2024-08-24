@@ -6,7 +6,8 @@ import itertools
 def partition_dict(bound_dict_init, units_partition, n_units, n_units_tot, remainder):
     """
         Partitions the units according to the number of subproblems.
-
+        This function divides the original optimization problem into multiple subproblems, each containing a fraction of the total number of units' tasks.
+    
         :param bound_dict_init: The initial bound dictionary.
         :type bound_dict_init: dict
         :param units_partition: The number of partitions.
@@ -17,8 +18,8 @@ def partition_dict(bound_dict_init, units_partition, n_units, n_units_tot, remai
         :type n_units_tot: int
         :param remainder: The remainder when dividing the total number of units by the number of partitions.
         :type remainder: int
-        :returns: dict_partitions: A list of dictionaries, each containing a partition of the units.
-        :rtype: list of dict
+        :returns: A list of dictionaries, each containing a partition of the units.
+        :rtype: list[dict]
     """
     items = iter(bound_dict_init.items())
     dict_partitions = []
