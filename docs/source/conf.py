@@ -12,7 +12,13 @@ import sys
 # Add the directory containing functions to the system path
 sys.path.insert(0, os.path.abspath('../../'))
 
+from recommonmark.parser import CommonMarkParser
 
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst']
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -33,8 +39,9 @@ extensions = [
     "nbsphinx",                    # Myst
     "sphinx.ext.autodoc",
     "sphinx_rtd_theme",
+    
 ]
-
+#'recommonmark',
 templates_path = ['_templates']
 exclude_patterns = []
 
