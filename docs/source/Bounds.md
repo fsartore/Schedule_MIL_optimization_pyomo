@@ -63,4 +63,3 @@ In this section, we will discuss the functions that are used to define the bound
 ```{eval-rst}
 .. autofunction:: Bounds.possible_unit_times
 ```
-</div>

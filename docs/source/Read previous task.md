@@ -1,5 +1,6 @@
 # Read previous task
 
+This section describes a series of functions used to read the previous task data.
 
 <div style="border: 2px solid #4CAF50; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
   <h2 style="color: #4CAF50;">Iterate Start and End Dates</h2>
@@ -23,4 +24,3 @@
 ```{eval-rst}
 .. autofunction:: read_previous_task.ReadLasttask.read_last_task
 ```
-</div>
