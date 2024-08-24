@@ -6,5 +6,5 @@ It is the file that is called by the user to run the optimization.
 <p>To access the main function, you can follow this link:</p>
 <p><a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Scheduling_task_multiyear.py" target="_blank" style="color: #4CAF50;">Scheduling_task_multiyear</a></p>
 
-![Optimization Process Description](../../Code_scheme.png)
+![Plot example](../../Plot_image.png)
 *Figure 1: Optimization Process Description*
