@@ -35,28 +35,28 @@ def partition_dict(bound_dict_init, units_partition, n_units, n_units_tot, remai
 
 def n_units_tuple(dict_partitions_current):
     """
-    Defines a list of possible units-times couples.
-
-    :param dict_partitions_current: The current partition dictionary.
-    :type dict_partitions_current: dict
-    :returns: A list of keys from the partition dictionary.
-    :rtype: list
+        Defines a list of possible units-times couples.
+    
+        :param dict_partitions_current: The current partition dictionary.
+        :type dict_partitions_current: dict
+        :returns: A list of keys from the partition dictionary.
+        :rtype: list
     """
     all_keys = list(dict_partitions_current.keys())
     return all_keys
 
 def bound_dict_end(bound_dict_init, weeks, best_task_delta_weeks):
     """
-    Defines a dictionary of tuples for the bounds of the end variables where every tuple is shifted by a given number of weeks.
-
-    :param bound_dict_init: The initial bound dictionary.
-    :type bound_dict_init: dict
-    :param weeks: The number of weeks in the time horizon.
-    :type weeks: int
-    :param best_task_delta_weeks: The number of weeks to shift the bounds.
-    :type best_task_delta_weeks: int
-    :returns: A dictionary with the updated bounds.
-    :rtype: dict
+        Defines a dictionary of tuples for the bounds of the end variables where every tuple is shifted by a given number of weeks.
+    
+        :param bound_dict_init: The initial bound dictionary.
+        :type bound_dict_init: dict
+        :param weeks: The number of weeks in the time horizon.
+        :type weeks: int
+        :param best_task_delta_weeks: The number of weeks to shift the bounds.
+        :type best_task_delta_weeks: int
+        :returns: A dictionary with the updated bounds.
+        :rtype: dict
     """
     bound_dict_end = {k: (v[0]+best_task_delta_weeks, v[1]+best_task_delta_weeks if weeks-v[1]>=1 else v[1]) for k, v in bound_dict_init.items()}
     return bound_dict_end
