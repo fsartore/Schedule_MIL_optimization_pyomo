@@ -5,21 +5,21 @@ import itertools
 
 def partition_dict(bound_dict_init, units_partition, n_units, n_units_tot, remainder):
     """
-    Partitions the units according to the number of subproblems.
+        Partitions the units according to the number of subproblems.
 
-    :param bound_dict_init: The initial bound dictionary.
-    :type bound_dict_init: dict
-    :param units_partition: The number of partitions.
-    :type units_partition: int
-    :param n_units: The number of units per partition.
-    :type n_units: int
-    :param n_units_tot: The total number of units.
-    :type n_units_tot: int
-    :param remainder: The remainder when dividing the total number of units by the number of partitions.
-    :type remainder: int
-    :returns:
-        - dict_partitions: A list of dictionaries, each containing a partition of the units.
-    :rtype: list of dict
+        :param bound_dict_init: The initial bound dictionary.
+        :type bound_dict_init: dict
+        :param units_partition: The number of partitions.
+        :type units_partition: int
+        :param n_units: The number of units per partition.
+        :type n_units: int
+        :param n_units_tot: The total number of units.
+        :type n_units_tot: int
+        :param remainder: The remainder when dividing the total number of units by the number of partitions.
+        :type remainder: int
+        :returns:
+            - dict_partitions: A list of dictionaries, each containing a partition of the units.
+        :rtype: list of dict
     """
     items = iter(bound_dict_init.items())
     dict_partitions = []
