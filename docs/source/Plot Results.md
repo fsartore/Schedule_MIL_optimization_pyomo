@@ -5,7 +5,7 @@ This section will provide a link to a code that perform a classical bathc plot o
 
 An idea of the plot can be seen in the following image:
 
-![Optimization Process](../../Plot_image.png)
+![Plot example](../../Plot_image.png)
 
 
 The code can be personalized to the user's needs.
