@@ -1,10 +1,7 @@
 import pyomo.environ as pyomo
-# from Parameters import T,  task_days, standard_interval,units_partition
-# from Parameters import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
-# from Parameters import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
-from Parameters_example import T,  task_days, standard_interval,units_partition
-from Parameters_example import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
-from Parameters_example import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
+from Parameters import T,  task_days, standard_interval,units_partition
+from Parameters import task_flexibility_up, task_flexibility_down, units_partition, check_overlap
+from Parameters import counter_unfeasibility_max, counter_overlap_max, max_time, check_time
 from Constraints import Constraints_task
 from Bounds import Bounds_class
 from Bounds import bound_dict_t, possible_unit_times,  partition_dict
@@ -15,14 +12,11 @@ from pyomo.contrib.appsi.solvers import Highs
 import numpy as np
 import pandas as pd
 from elaborate_and_save_data import save_data_results, fill_dataframe, process_task_data
-#from time_handling import TimeHandling
-from time_handling_example import TimeHandling
+from time_handling import TimeHandling
 from Task_Manager import unit_todo_task, task_range, target_time
 from handling_unfeasibility import handle_unfeasibility, adjusted_bound_dict_init
-#from read_previous_task import ReadLasttask
-from read_previous_task_example import ReadLasttask
-#from Parameters import unit_names, today,  end_year, best_task_delta_weeks, best_task_delta_days
-from Parameters_example import unit_names, today,  end_year, best_task_delta_weeks, best_task_delta_days
+from read_previous_task import ReadLasttask
+from Parameters import unit_names, today,  end_year, best_task_delta_weeks, best_task_delta_days
 import Directories as dir
 
 start_time = time.time()

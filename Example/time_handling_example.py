@@ -68,7 +68,7 @@ class TimeHandling:
         return [date.strftime('%Y-%m-%d') for date in weekends]
 
     '''This is a complex function that adjusts the solution to be feasible, to avoid overlaps, to make the first day Monday'''
-    def modify_maintenance_schedule(self,check_overlap,  m, days_to_monday, counter,storage_x,  start_end_time_dict, active_gen_keys_list, counter_overlap,counter_overlap_max, maintenance_days):
+    def modify_task_schedule(self,check_overlap,  m, days_to_monday, counter,storage_x,  start_end_time_dict, active_gen_keys_list, counter_overlap,counter_overlap_max, maintenance_days):
         '''
         check overlap= True if we want the solver to restart in case of overlap
         storage_x = where previous solution of the same year are stored
@@ -79,9 +79,9 @@ class TimeHandling:
         '''
 
         "Import current solution of current partition"
-        specific_x = [[pyomo.value(m.x[i,j]) for j in m.time_horizon_tot] for i in m.n_generators]
-        specific_x_prev =  [[pyomo.value(m.x[i,j]) for j in m.time_horizon_tot] for i in m.n_generators]
-        specific_x_next = [[pyomo.value(m.x[i,j]) for j in m.time_horizon_tot] for i in m.n_generators]
+        specific_x = [[pyomo.value(m.x[i,j]) for j in m.time_horizon_tot] for i in m.n_units]
+        specific_x_prev =  [[pyomo.value(m.x[i,j]) for j in m.time_horizon_tot] for i in m.n_units]
+        specific_x_next = [[pyomo.value(m.x[i,j]) for j in m.time_horizon_tot] for i in m.n_units]
 
         # To get a unique list of all indices where any element of specific_x is 1, considering specific_x is a list of lists
         all_busy_days_prev = list(set(j for i in range(len(storage_x)) for j, value in enumerate(storage_x[i]) if value == 1))
