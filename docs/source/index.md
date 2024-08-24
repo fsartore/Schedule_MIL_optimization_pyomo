@@ -11,7 +11,7 @@
 
 ```{toctree}
 :caption: 'Contents:'
-:maxdepth: 6
+:maxdepth: 8
 
 Installation
 Main
@@ -24,7 +24,6 @@ Task Manager
 Time Handling
 Handling Unfeasibility
 Plot Results
-Plot Results copy
 Example
 ```
 
