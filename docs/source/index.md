@@ -19,8 +19,8 @@ Pyomo Optimization Model
 Constraints
 Parameters
 Time Bounds
+Read Previous task
 Task Manager
-Read Previous Task
 Time Handling
 Handling Unfeasibility
 Plot Results
