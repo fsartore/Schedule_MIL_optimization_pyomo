@@ -20,7 +20,7 @@ The specific functions are described in the specific Contents section:
 1. {doc}`Pyomo Optimization Model`: This section describes the optimization model used in the package.
 2. {doc}`Constraints`: This section describes the constraints used in the optimization model.
 3. {doc}`Parameters`: This section describes the parameters used in the optimization model.
-4. {doc}`Bounds`: This section describes the bounds used in the optimization model.
+4. {doc}`Time Bounds`: This section describes the bounds used in the optimization model.
 5. {doc}`Read previous task`: This section describes how to read the previous task, to further optimize the schedule.
 6. {doc}`Task Manager`: This section describes a series of functions used to manage the task.
 7. {doc}`Time Handling`: This section describes a series of functions used to handle the time in the optimization model.
