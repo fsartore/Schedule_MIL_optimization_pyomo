@@ -11,7 +11,7 @@ In this section, we will discuss the functions that are used to define the bound
   <p><a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Bounds.py#L6-L33" target="_blank" style="color: #4CAF50;">Bounds.partition_dict</a></p>
 
 ```{eval-rst}
-.. autofunction:: Task_Manager.unit_todo_task
+.. autofunction:: Bounds.partition_dict
 ```
 </div>
 
