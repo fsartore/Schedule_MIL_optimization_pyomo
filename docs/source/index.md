@@ -25,6 +25,7 @@ Time Handling
 Handling Unfeasibility
 Plot Results
 Example
+Task Manager Copy
 ```
 
 
