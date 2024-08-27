@@ -11,7 +11,7 @@
 
 ```{toctree}
 :caption: 'Contents:'
-:maxdepth: 8
+:maxdepth: 12
 
 Installation
 Main
