@@ -15,11 +15,11 @@
 
 Installation
 Main
+Read Previous task
 Pyomo Optimization Model
 Constraints
 Parameters
 Time Bounds
-Read Previous task
 Task Manager
 Time Handling
 Handling Unfeasibility
