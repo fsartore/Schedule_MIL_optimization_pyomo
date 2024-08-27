@@ -20,6 +20,7 @@ Constraints
 Parameters
 Time Bounds
 Read Previous task
+Read Previous Task copy
 Task Manager
 Time Handling
 Handling Unfeasibility
