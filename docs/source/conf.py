@@ -18,7 +18,7 @@ source_parsers = {
     '.md': CommonMarkParser,
 }
 
-source_suffix = ['.rst']
+source_suffix = ['.rst', '.md']
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
