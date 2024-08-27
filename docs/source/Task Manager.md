@@ -45,6 +45,6 @@ This section describes a series of functions used to mamange the task, in partic
   <p><a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/Bounds.py#L6-L33" target="_blank" style="color: #4CAF50;">Bounds.partition_dict</a></p>
 
 ```{eval-rst}
-.. autofunction:: Bounds.partition_dict
+.. autofunction:: Task_Manager.partition_dict
 ```
 </div>

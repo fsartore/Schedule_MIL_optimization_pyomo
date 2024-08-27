@@ -1,4 +1,3 @@
-import pyomo.environ as pyomo
 import itertools
 
 def partition_dict(bound_dict_init, units_partition, n_units, n_units_tot, remainder):
