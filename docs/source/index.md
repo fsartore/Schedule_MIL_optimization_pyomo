@@ -19,7 +19,7 @@ Pyomo Optimization Model
 Constraints
 Parameters
 Bounds
-Task Manager Copy
+Time Bounds
 Read previous task
 Task Manager
 Time Handling
