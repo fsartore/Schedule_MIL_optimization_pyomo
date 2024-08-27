@@ -16,7 +16,7 @@ In this section, we will discuss the functions that are used to define the bound
 ```
 </div>
 
-</div>
+
 
 <div style="border: 2px solid #4CAF50; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
   <h2 style="color: #4CAF50;">n_units_tuple</h2>
