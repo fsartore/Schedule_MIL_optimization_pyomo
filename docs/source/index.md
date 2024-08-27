@@ -18,7 +18,6 @@ Main
 Pyomo Optimization Model
 Constraints
 Parameters
-Bounds
 Time Bounds
 Read previous task
 Task Manager
