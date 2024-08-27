@@ -1,4 +1,5 @@
 # Time Handling
+
 This section describes a series of functions used to handle the time in the optimization model. In particular, it describes how to create diferent time elements. Most of them are very basic function, whose name is self-explanatory. You can fine them in the <a href="https://github.com/fsartore/Schedule_MIL_optimization_pyomo/blob/main/time_handling.py" target="_blank" style="color: #4CAF50;">time_handling</a> file. We will focus on two functions, which are more complex and are used to define the holidays list, which is an important user input in the optimization model to be defined according to the user's needs. The second funtion is meant to handle the model in case of wrong solutions, so that it can return a correct solution.
 
 
