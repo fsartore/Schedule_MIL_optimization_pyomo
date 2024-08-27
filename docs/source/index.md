@@ -19,13 +19,13 @@ Pyomo Optimization Model
 Constraints
 Parameters
 Bounds
+Task Manager Copy
 Read previous task
 Task Manager
 Time Handling
 Handling Unfeasibility
 Plot Results
 Example
-Task Manager Copy
 ```
 
 
